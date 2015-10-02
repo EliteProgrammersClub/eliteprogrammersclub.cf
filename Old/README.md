@@ -1,4 +1,0 @@
-eliteprogrammingclub.tk
-=======================
-
-Club Website
