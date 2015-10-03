@@ -1,0 +1,25 @@
+{
+  "name": "eliteprogrammersclub.cf",
+  "version": "1.0.0",
+  "description": "Webite for Elite Programmers",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliteProgrammersClub/eliteprogrammersclub.cf.git"
+  },
+  "author": "Acho Arnold",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EliteProgrammersClub/eliteprogrammersclub.cf/issues"
+  },
+  "homepage": "https://github.com/EliteProgrammersClub/eliteprogrammersclub.cf#readme",
+  "dependencies": {
+    "foundation-sites": "^5.5.2"
+  }
+}

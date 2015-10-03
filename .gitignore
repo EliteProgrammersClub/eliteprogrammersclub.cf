@@ -1,3 +1,5 @@
 /vendor
 .env
 old-site
+database/seeds/SubscriberTableSeeder.php
+node_modules

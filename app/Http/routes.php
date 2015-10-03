@@ -1,5 +1,10 @@
 <?php
 
+
+use App\Models\Subscriber;
+
+//use SubscriberController
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,4 +18,28 @@
 
 $app->get('/', function () use ($app) {
     return $app->welcome();
+});
+
+$app->get(
+    'subscribers/create',
+    [
+        'as' => 'subscriber.create',
+        'uses' => 'SubscriberController@create',
+    ]
+);
+
+$app->post(
+    'subscribers',
+    [
+        'as' => 'subscriber.store',
+        'uses' => 'SubscriberController@store',
+    ]
+);
+
+
+
+$app->get('hello', function () {
+    $disk = \Storage::disk('s3');
+    $disk->put( time().'phpunit.xml', file_get_contents('/var/www/open-source/eliteprogrammersclub.cf/git-repo/phpunit.xml'));
+    return var_dump($disk);
 });
