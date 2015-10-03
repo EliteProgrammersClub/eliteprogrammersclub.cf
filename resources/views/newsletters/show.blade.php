@@ -7,8 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Elite Programmers Club Newsletter</title>
 
-<link rel="stylesheet" type="text/css" href="{{ asset('')  }}" >
-
 <style>
     <?php include base_path().'/public/assets/css/email.css'; ?>
 </style>
