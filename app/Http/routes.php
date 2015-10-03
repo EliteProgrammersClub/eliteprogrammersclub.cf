@@ -38,8 +38,8 @@ $app->post(
 
 
 
-$app->get('hello', function () {
-    $disk = \Storage::disk('s3');
-    $disk->put( time().'phpunit.xml', file_get_contents('/var/www/open-source/eliteprogrammersclub.cf/git-repo/phpunit.xml'));
-    return var_dump($disk);
-});
+// $app->get('hello', function () {
+//     $disk = \Storage::disk('s3');
+//     $disk->put( time().'phpunit.xml', file_get_contents('/var/www/open-source/eliteprogrammersclub.cf/git-repo/phpunit.xml'));
+//     return var_dump($disk);
+// });

@@ -15,6 +15,7 @@ class CreateNewsletterTable extends Migration
         Schema::create('newsletters', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('status', ['pending', 'sent'])->default('pending');
+            $table->string('header_image');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -27,6 +28,6 @@ class CreateNewsletterTable extends Migration
      */
     public function down()
     {
-        Schema::drop('newsletter');
+        Schema::drop('newsletters');
     }
 }

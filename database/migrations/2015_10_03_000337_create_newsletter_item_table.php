@@ -31,6 +31,6 @@ class CreateNewsletterItemTable extends Migration
      */
     public function down()
     {
-        Schema::drop('newsletter_item');
+        Schema::drop('newsletter_items');
     }
 }
