@@ -20,26 +20,45 @@ $app->get('/', function () use ($app) {
     return $app->welcome();
 });
 
-$app->get(
-    'subscribers/create',
-    [
-        'as' => 'subscriber.create',
-        'uses' => 'SubscriberController@create',
-    ]
-);
-
-$app->post(
-    'subscribers',
-    [
-        'as' => 'subscriber.store',
-        'uses' => 'SubscriberController@store',
-    ]
-);
 
 
+$app->group(['prefix' => 'subscribers', 'namespace' => 'App\Http\Controllers'], function ($app) {
+    $app->get(
+        'create',
+        [
+            'as' => 'subscriber.create',
+            'uses' => 'SubscriberController@create',
+        ]
+    );
 
-// $app->get('hello', function () {
-//     $disk = \Storage::disk('s3');
-//     $disk->put( time().'phpunit.xml', file_get_contents('/var/www/open-source/eliteprogrammersclub.cf/git-repo/phpunit.xml'));
-//     return var_dump($disk);
-// });
+    $app->post(
+        '/',
+        [
+            'as' => 'subscriber.store',
+            'uses' => 'SubscriberController@store',
+        ]
+    );
+});
+
+
+$app->group(['prefix' => 'newsletters', 'namespace' => 'App\Http\Controllers' ], function ($app) {
+    $app->get(
+        '{id}',
+        [
+            'as' => 'newsletter.show',
+            'uses' => 'NewsletterController@show'
+        ]
+    );
+});
+
+
+
+
+$app->get('hello', function () {
+    $disk = \Storage::disk('s3');
+    $disk->put(
+        time().'newsletter_1_header.jpg',
+        file_get_contents('/Users/najela/Downloads/11537167_10204669319073134_3571290144422276455_o.jpg')
+    );
+    return var_dump($disk);
+});
