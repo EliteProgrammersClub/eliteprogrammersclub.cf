@@ -17,12 +17,26 @@ use App\Models\Subscriber;
 */
 
 $app->get('/', function () use ($app) {
-    return $app->welcome();
+
+    // $subscribers= Subscriber::all();
+    // foreach ($subscribers as $subscriber) {
+    //     $subscriber->unsubscribe_token = generateUnsubscribeToken();
+    //     $subscriber->save();
+    // }
+    return "This website is under heavy development. We'll be online soon";
 });
 
 
 
 $app->group(['prefix' => 'subscribers', 'namespace' => 'App\Http\Controllers'], function ($app) {
+    $app->post(
+        '/',
+        [
+            'as' => 'subscriber.store',
+            'uses' => 'SubscriberController@store',
+        ]
+    );
+
     $app->get(
         'create',
         [
@@ -31,17 +45,25 @@ $app->group(['prefix' => 'subscribers', 'namespace' => 'App\Http\Controllers'], 
         ]
     );
 
-    $app->post(
-        '/',
+    $app->get(
+        'unsubscribe/{token}',
         [
-            'as' => 'subscriber.store',
-            'uses' => 'SubscriberController@store',
+            'as' => 'subscriber.unsubscribe',
+            'uses' => 'SubscriberController@unsubscribe',
         ]
     );
 });
 
 
 $app->group(['prefix' => 'newsletters', 'namespace' => 'App\Http\Controllers' ], function ($app) {
+    $app->get(
+        'send-preview',
+        [
+            'as' => 'newsletter.send-preview',
+            'uses' => 'NewsletterController@sendPreview'
+        ]
+    );
+
     $app->get(
         '{id}',
         [
@@ -57,8 +79,9 @@ $app->group(['prefix' => 'newsletters', 'namespace' => 'App\Http\Controllers' ],
 $app->get('hello', function () {
     $disk = \Storage::disk('s3');
     $disk->put(
-        time().'newsletter_1_header.jpg',
-        file_get_contents('/Users/najela/Downloads/11537167_10204669319073134_3571290144422276455_o.jpg')
+        'cool.png',
+        //time().'SublimeText_Master_012312_icon.png',
+        file_get_contents('/Users/najela/Downloads/cool.png')
     );
-    return var_dump($disk);
+    return json_encode(['sucess' => true]);
 });

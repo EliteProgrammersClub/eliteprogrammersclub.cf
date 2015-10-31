@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/EliteProgrammersClub/eliteprogrammersclub.cf#readme",
   "dependencies": {
-    "foundation-sites": "^5.5.2"
+    "foundation-sites": "^5.5.2",
+    "laravel-elixir": "^3.4.2"
   }
 }
