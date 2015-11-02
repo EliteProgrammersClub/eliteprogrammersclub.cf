@@ -51,7 +51,7 @@
                 <table>
                     <tr>
                         <td>
-                            <h3>Hello @if(isset($subscriber)){{ $subscriber->last_name}}@endif,</h3>
+                            <h3>Hello @if(isset($subscriber)) {{ $subscriber->last_name}},@endif</h3>
                             <p class="lead">
                                 Welcome to the {{ ordinal($newsletter->issue_number) }} edition of of the Elite Programmers Club newsletter.
                             </p>

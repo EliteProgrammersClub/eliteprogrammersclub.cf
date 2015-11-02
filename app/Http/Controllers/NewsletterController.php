@@ -24,15 +24,12 @@ class NewsletterController extends BaseController
     public function show($id)
     {
         $newsletter = $this->newsletter->find($id);
-        $subscriber = $this->subscriber->find(1);
 
 
         return view(
             'newsletters.show',
             [
                 'newsletter' => $newsletter,
-                'subscriber' => $subscriber,
-                'unsubscribeUrl' => route('subscriber.unsubscribe', ['token' => $subscriber->unsubscribe_token ])
             ]
         );
     }
