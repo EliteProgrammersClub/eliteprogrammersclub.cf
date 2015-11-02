@@ -59,4 +59,27 @@ class NewsletterController extends BaseController
 
         return response()->json(['success' => true]);
     }
+
+    public function send()
+    {
+        $subscribers = $this->subscriber->where('status', '=', true)->get();
+        $newsletter = $this->newsletter->find(1);
+
+        foreach ($subscribers as $subscriber) {
+            Mail::send(
+                'newsletters.show',
+                [
+                    'newsletter' => $newsletter,
+                    'subscriber' => $subscriber,
+                    'unsubscribeUrl' => route('subscriber.unsubscribe', ['token' => $subscriber->unsubscribe_token ])
+                ],
+                function ($m) use ($subscriber) {
+                    $m->to($subscriber->email, $subscriber->name)
+                      ->subject('Elite Programmers Club newsletter | University of Buea');
+                }
+            );
+        }
+
+        return response()->json(['success' => true]);
+    }
 }
