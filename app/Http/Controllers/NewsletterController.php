@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Mail;
 use Laravel\Lumen\Routing\Controller as BaseController;
-use App\Models\NewsLetter;
-use App\Models\NewsLetterItem;
+use App\Models\Newsletter;
+use App\Models\NewsletterItem;
 use App\Models\Subscriber;
 
 class NewsletterController extends BaseController
@@ -62,7 +62,7 @@ class NewsletterController extends BaseController
 
     public function send()
     {
-        $subscribers = $this->subscriber->where('status', '=', true)->get();
+        $subscribers = $this->subscriber->where('status', '=', true)->where('email', '=', 'arnold@archlinux.info')->get();
         $newsletter = $this->newsletter->find(1);
 
         foreach ($subscribers as $subscriber) {

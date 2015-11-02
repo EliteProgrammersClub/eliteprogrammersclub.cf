@@ -10,6 +10,6 @@ class ExampleTest extends TestCase
     public function testBasicExample()
     {
         $this->visit('/')
-             ->see('Lumen.');
+             ->see("This website is under heavy development. We'll be online soon'");
     }
 }
