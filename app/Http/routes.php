@@ -65,6 +65,14 @@ $app->group(['prefix' => 'newsletters', 'namespace' => 'App\Http\Controllers' ],
     );
 
     $app->get(
+        'send',
+        [
+            'as' => 'newsletter.send',
+            'uses' => 'NewsletterController@send'
+        ]
+    );
+
+    $app->get(
         '{id}',
         [
             'as' => 'newsletter.show',
