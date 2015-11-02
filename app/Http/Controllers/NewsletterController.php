@@ -62,7 +62,7 @@ class NewsletterController extends BaseController
 
     public function send()
     {
-        $subscribers = $this->subscriber->where('status', '=', true)->where('email', '=', 'arnold@archlinux.info')->get();
+        $subscribers = $this->subscriber->where('status', '=', true)->get();
         $newsletter = $this->newsletter->find(1);
 
         foreach ($subscribers as $subscriber) {
