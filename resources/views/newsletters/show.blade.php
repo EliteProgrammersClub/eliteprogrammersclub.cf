@@ -148,7 +148,7 @@
                         <td>
 
                             <!-- Callout Panel -->
-                            <p class="callout">If you are looking for a group of talented programmers which you can join to easily grasp improve your programming skills? <a href="http://eliteprogrammersclub.cf/">Join Us Now! &raquo;</a>	</p><!-- /callout panel -->
+                            <p class="callout">Are you are looking for a group of talented programmers which you can join to improve your programming skills? <a href="http://eliteprogrammersclub.cf/">Join Us Now! &raquo;</a>	</p><!-- /callout panel -->
 
                         </td>
                     </tr>
