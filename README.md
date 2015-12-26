@@ -1,4 +1,4 @@
-eliteprogrammingclub.tk
+https://eliteprogrammersclub.cf
 =======================
 
 Club Website
